@@ -4,7 +4,7 @@ OpenFeed is a minimalistic contract for creating numeric data feeds. There will 
 
 ##Design
 
-OpenFeed in designed for numeric, signed, data. That means all values must be in the range [-(2^255),(2^255) - 1]. Timestamps are automatically set by the contract and can not be manually updated.
+OpenFeed in designed for numeric, signed, data. That means all values must be in the range `[-(2^255),(2^255) - 1]`. Timestamps are automatically set by the contract and can not be manually updated.
 
 ##Examples
 
