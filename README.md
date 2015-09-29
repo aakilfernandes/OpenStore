@@ -2,6 +2,8 @@
 
 OpenFeed is a minimalistic contract for creating numeric data feeds such as price tickers. There will likely be lots of independent data feeds in the Ethereum world. OpenFeed creates a simple, standardized API that saves developers the hassle/cost of creating their own contract.
 
+OpenFeed is undergoing public review, it may change so please don't develop anything on it just yet.
+
 ##Design
 
 OpenFeed in designed for numeric, signed, data. That means all values must be in the range `[-(2^255),(2^255) - 1]`. Timestamps are automatically set by the contract and can not be manually updated.
