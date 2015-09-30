@@ -1,5 +1,7 @@
 #OpenStore
 
+Address: 0xaf527686227cc508ead0d69c7f8a98f76b63e191
+
 OpenStore is a minimalistic contract for saving data on the Ethereum blockchain. The use case is a developer who wants to make some data public, but does not necessarily need any contract.
 
 An example of this would be a developer trying to expose exchange rate data that can be used by any contract or client.
@@ -19,7 +21,7 @@ Keys must fit within 32 bytes, values have no upper limit. All values are stored
 ###Instantiation
 
      var OpenStoreAbi = [{"constant":true,"inputs":[{"name":"addr","type":"address"},{"name":"key","type":"bytes32"}],"name":"getTimestamp","outputs":[{"name":"","type":"uint256"}],"type":"function"},{"constant":false,"inputs":[{"name":"key","type":"bytes32"},{"name":"value","type":"bytes"}],"name":"setFromContract","outputs":[],"type":"function"},{"constant":true,"inputs":[{"name":"addr","type":"address"},{"name":"key","type":"bytes32"}],"name":"getValue","outputs":[{"name":"","type":"bytes"}],"type":"function"},{"constant":false,"inputs":[{"name":"key","type":"bytes32"},{"name":"value","type":"bytes"}],"name":"set","outputs":[],"type":"function"}]
-     	,OpenStore = web3.eth.contract(OpenStoreAbi).at("0x....")
+     	,OpenStore = web3.eth.contract(OpenStoreAbi).at("0xaf527686227cc508ead0d69c7f8a98f76b63e191")
 
 ###Setting Data
 	OpenStore.set('usd',20)
