@@ -12,6 +12,8 @@ You can think of OpenStore like a JSON object where each address has their own s
 
 Keys must fit within 32 bytes, values have no upper limit. All values are stored within the contract as bytes and must be converted upon retreival.
 
+[You can read the source code here.](/app/contracts/OpenStore.sol)
+
 ##Examples
 
 ###Instantiation
