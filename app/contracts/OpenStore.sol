@@ -1,4 +1,4 @@
-contract OpenFeed{
+contract OpenStore{
 	
 	mapping(address=>mapping(bytes32=>Datum)) data;
 
