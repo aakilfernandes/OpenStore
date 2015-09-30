@@ -4,6 +4,14 @@ OpenStore is a minimalistic contract for saving data on the Ethereum blockchain.
 
 An example of this would be a developer trying to expose exchange rate data that can be used by any contract or client.
 
+##Design
+
+You can think of OpenStore like a JSON object where each address has their own space.
+
+	OpenStore[address][key] = {value:value,timestamp:timestamp}
+
+Keys must fit within 32 bytes, values have no upper limit. All values are stored within the contract as bytes and must be converted upon retreival.
+
 ##Examples
 
 ###Instantiation
