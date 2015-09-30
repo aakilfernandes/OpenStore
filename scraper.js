@@ -9,7 +9,7 @@ web3.setProvider(new web3.providers.HttpProvider('http://localhost:8101'));
 var account = web3.eth.defaultAccount = web3.eth.accounts[0]
 
 var compiled = web3.eth.compile.solidity(contractCode)
-	,OpenFeed = web3.eth.contract(compiled.OpenFeed.info.abiDefinition).at('0x4a9a9258e685a3d47ed37fa5bc0a9930a9b234df')
+	,OpenFeed = web3.eth.contract(compiled.OpenFeed.info.abiDefinition).at("0xb4934dc0e40fb0a40d1b844d95abc1d426c54802")
 
 request('https://coinmarketcap-nexuist.rhcloud.com/api/eth',function(error,response,body){
 	if(response.statusCode !== 200)
@@ -24,7 +24,9 @@ request('https://coinmarketcap-nexuist.rhcloud.com/api/eth',function(error,respo
 
 		var newRate = rates[currency]
 			,newRateRounded = newRate.round()
-			,rate = OpenFeed.getValue(account,currency)
+			,rateBytes = OpenFeed.getValue(account,currency)
+			,rateBytesPadded = rateBytes.length===2 ? rateBytes+'00' : rateBytes
+			,rate = web3.toBigNumber(rateBytesPadded)
 			,timestamp = OpenFeed.getTimestamp(account,currency)
 			,difference = newRate.minus(rate)
 			,percentChange = difference.div(rate)
@@ -37,7 +39,7 @@ request('https://coinmarketcap-nexuist.rhcloud.com/api/eth',function(error,respo
 			|| absolutePercentChange.greaterThan('.01')
 			|| rate.equals(0) && newRate.notEqualTo(0)
 		){
-			OpenFeed.set(currency,newRateRounded)
+				OpenFeed.set(currency,newRateRounded)
 		}
 	}
 
