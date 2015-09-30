@@ -18,7 +18,7 @@ Keys must fit within 32 bytes, values have no upper limit. All values are stored
 
 ###Instantiation
 
-     var OpenStoreAbi = [{"constant":false,"inputs":[{"name":"key","type":"string"},{"name":"value","type":"int256"}],"name":"set","outputs":[],"type":"function"},{"constant":false,"inputs":[{"name":"key","type":"string"},{"name":"value","type":"int256"}],"name":"setFromContract","outputs":[],"type":"function"},{"constant":true,"inputs":[{"name":"addr","type":"address"},{"name":"key","type":"string"}],"name":"getValue","outputs":[{"name":"","type":"int256"}],"type":"function"},{"constant":true,"inputs":[{"name":"addr","type":"address"},{"name":"key","type":"string"}],"name":"getTimestamp","outputs":[{"name":"","type":"uint256"}],"type":"function"}]
+     var OpenStoreAbi = [{"constant":true,"inputs":[{"name":"addr","type":"address"},{"name":"key","type":"bytes32"}],"name":"getTimestamp","outputs":[{"name":"","type":"uint256"}],"type":"function"},{"constant":false,"inputs":[{"name":"key","type":"bytes32"},{"name":"value","type":"bytes"}],"name":"setFromContract","outputs":[],"type":"function"},{"constant":true,"inputs":[{"name":"addr","type":"address"},{"name":"key","type":"bytes32"}],"name":"getValue","outputs":[{"name":"","type":"bytes"}],"type":"function"},{"constant":false,"inputs":[{"name":"key","type":"bytes32"},{"name":"value","type":"bytes"}],"name":"set","outputs":[],"type":"function"}]
      	,OpenStore = web3.eth.contract(OpenStoreAbi).at("0x....")
 
 ###Setting Data
